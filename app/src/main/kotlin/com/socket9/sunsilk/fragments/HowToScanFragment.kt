@@ -5,14 +5,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.socket9.sunsilk.R
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_how_to_scan.*
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
  */
-class MainFragment : Fragment() {
+class HowToScanFragment : Fragment() {
 
     /** Variable zone **/
     lateinit var param1: String
@@ -22,10 +21,10 @@ class MainFragment : Fragment() {
     companion object {
         val ARG_1 = "ARG_1"
 
-        fun newInstance(param1: String): MainFragment {
+        fun newInstance(param1: String): HowToScanFragment {
             var bundle: Bundle = Bundle()
             bundle.putString(ARG_1, param1)
-            val templateFragment: MainFragment = MainFragment()
+            val templateFragment: HowToScanFragment = HowToScanFragment()
             templateFragment.arguments = bundle
             return templateFragment
         }
@@ -43,7 +42,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView: View = inflater!!.inflate(R.layout.fragment_main, container, false)
+        val rootView: View = inflater!!.inflate(R.layout.fragment_how_to_scan, container, false)
 
         return rootView
     }
@@ -56,6 +55,6 @@ class MainFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
-        Glide.with(this).load("http://nationalave.com/wp-content/uploads/2016/05/hodor.jpg").centerCrop().into(civProfileImage)
+        tvHowtoScan.text = param1
     }
 }

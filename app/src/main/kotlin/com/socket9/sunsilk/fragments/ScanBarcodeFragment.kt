@@ -1,11 +1,20 @@
 package com.socket9.sunsilk.fragments
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.ScannerActivity
+import com.socket9.sunsilk.adapter.HowToScanAdapter
+import com.socket9.thetsl.extensions.toast
+import kotlinx.android.synthetic.main.fragment_scan_barcode.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.support.v4.alert
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
@@ -51,9 +60,25 @@ class ScanBarcodeFragment : Fragment() {
         initInstance()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK){
+            val dialog = alert("ยินดีด้วย ") {
+                positiveButton("Yes") { toast("เย่ เย่") }
+                negativeButton("No") {}
+            }
+            val point = (Math.random() * 10 + 1).toInt()
+            dialog.message("คุณได้รับ $point คะแนน")
+            dialog.show()
+        }
+    }
     /** Method zone **/
 
     private fun initInstance() {
+        viewPagerScan.adapter = HowToScanAdapter(childFragmentManager, context)
 
+        btnScan.setOnClickListener{
+            startActivityForResult(Intent(context, ScannerActivity::class.java), 100)
+        }
     }
 }
