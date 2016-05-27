@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base button theme. -->
+    <style name="BaseButton" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:layout_height">@dimen/button_height</item>
+    </style>
+
+    <style name="BaseButton.Green">
+        <item name="colorButtonNormal">@color/colorGreen</item>
+    </style>
+
+</resources>

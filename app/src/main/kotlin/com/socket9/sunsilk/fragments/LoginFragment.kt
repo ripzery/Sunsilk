@@ -1,28 +1,38 @@
 package com.socket9.sunsilk.fragments
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.socket9.sunsilk.MainActivity
 import com.socket9.sunsilk.R
+import kotlinx.android.synthetic.main.fragment_login.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.support.v4.indeterminateProgressDialog
+import org.jetbrains.anko.support.v4.startActivity
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
  */
-class LoginFragment : Fragment() {
+class LoginFragment : Fragment(), AnkoLogger {
 
     /** Variable zone **/
-    lateinit var param1: String
+    var param1: Int = 0
+    private var progressDialog: ProgressDialog? = null
 
 
     /** Static method zone **/
     companion object {
         val ARG_1 = "ARG_1"
 
-        fun newInstance(param1: String): LoginFragment {
+        fun newInstance(param1: Int): LoginFragment {
             var bundle: Bundle = Bundle()
-            bundle.putString(ARG_1, param1)
+            bundle.putInt(ARG_1, param1)
             val templateFragment: LoginFragment = LoginFragment()
             templateFragment.arguments = bundle
             return templateFragment
@@ -36,7 +46,7 @@ class LoginFragment : Fragment() {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             /* if newly created */
-            param1 = arguments.getString(ARG_1)
+            param1 = arguments.getInt(ARG_1)
         }
     }
 
@@ -54,6 +64,16 @@ class LoginFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
-
+        btnLogin.setOnClickListener {
+            progressDialog = indeterminateProgressDialog("Logging In", "Please wait...")
+            progressDialog?.setCancelable(false)
+            Observable.just(1)
+                    .delay(3, TimeUnit.SECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe {
+                        progressDialog?.dismiss()
+                        startActivity<MainActivity>()
+                    }
+        }
     }
 }
