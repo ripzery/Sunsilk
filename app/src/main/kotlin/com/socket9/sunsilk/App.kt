@@ -2,6 +2,7 @@ package com.socket9.sunsilk
 
 import android.app.Application
 import android.content.Context
+import com.socket9.sunsilk.managers.Contextor
 import com.socket9.sunsilk.managers.SharePref
 
 /**
@@ -11,5 +12,6 @@ class App : Application(){
     override fun onCreate() {
         super.onCreate()
         SharePref.sharePref = getSharedPreferences("Sunsilk", Context.MODE_PRIVATE);
+        Contextor.context = this
     }
 }

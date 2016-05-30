@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.managers.Contextor
 import com.socket9.sunsilk.models.Model
 import com.socket9.sunsilk.viewgroups.RedeemPrizeViewGroup
 import org.jetbrains.anko.find
@@ -19,7 +20,7 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder> {
 
     companion object {
         val defaultList: MutableList<Model.RedeemPrize> = mutableListOf(
-                Model.RedeemPrize("Prize A", 10, "Description A"),
+                Model.RedeemPrize("Prize A", 10, Contextor.context.getString(R.string.lorem)),
                 Model.RedeemPrize("Prize B", 20, "Description B"),
                 Model.RedeemPrize("Prize C", 30, "Description C")
         )

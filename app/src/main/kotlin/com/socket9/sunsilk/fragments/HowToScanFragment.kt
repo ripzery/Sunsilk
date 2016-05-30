@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_how_to_scan.*
 class HowToScanFragment : Fragment() {
 
     /** Variable zone **/
-    lateinit var param1: String
+    var param1: String = ""
 
 
     /** Static method zone **/

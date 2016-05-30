@@ -9,6 +9,7 @@ import com.socket9.sunsilk.fragments.ContentFragment
 import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.fragments.RedeemPointFragment
 import com.socket9.sunsilk.fragments.ScanBarcodeFragment
+import com.socket9.sunsilk.managers.SharePref
 
 /**
  * Created by Euro (ripzery@gmail.com) on 5/27/16 AD.
@@ -20,6 +21,7 @@ class MainTabAdapter : FragmentPagerAdapter {
     private val POSITION_TWO = 1;
     private val POSITION_THREE = 2;
     private val POSITION_FOUR = 3;
+    private var currentPoint = 0
     lateinit private var context:Context
     lateinit private var mainFragment: MainFragment
     lateinit private var scanBarcodeFragment: ScanBarcodeFragment
@@ -32,10 +34,6 @@ class MainTabAdapter : FragmentPagerAdapter {
 
     constructor(fragmentManager: FragmentManager, context: Context): super(fragmentManager){
         this.context = context
-        mainFragment = MainFragment.newInstance("")
-        scanBarcodeFragment = ScanBarcodeFragment.newInstance("")
-        redeemPointFragment = RedeemPointFragment.newInstance("")
-        contentFragment = ContentFragment.newInstance("")
     }
 
     companion object {
@@ -45,15 +43,12 @@ class MainTabAdapter : FragmentPagerAdapter {
 
     override fun getItem(position: Int): Fragment? {
         when(position){
-            POSITION_ONE -> return mainFragment
-            POSITION_TWO -> return scanBarcodeFragment
-            POSITION_THREE -> return redeemPointFragment
-            else -> return contentFragment
+            POSITION_ONE -> return MainFragment.newInstance(SharePref.getPoint()) 
+            POSITION_TWO -> return ScanBarcodeFragment.newInstance("")
+            POSITION_THREE -> return RedeemPointFragment.newInstance("")
+            POSITION_FOUR -> return ContentFragment.newInstance("")
+            else -> return null
         }
-    }
-
-    fun setPoint(point: Int){
-        mainFragment.setPoint(point)
     }
 
     override fun getCount(): Int {

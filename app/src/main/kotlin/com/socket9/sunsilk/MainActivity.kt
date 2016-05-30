@@ -50,8 +50,6 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 viewpager.currentItem = tab!!.position
-                if(tab!!.position == 0)
-                    mainTabAdapter?.setPoint(SharePref.getPoint())
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {

@@ -21,5 +21,7 @@
 
     <!-- material color 700's shade -->
     <color name="colorGreyDarker">#BDBDBD</color>
+    <color name="colorCyanDarker">#0097a7</color>
+    <color name="colorTealDarker">#00796b</color>
 
 </resources>

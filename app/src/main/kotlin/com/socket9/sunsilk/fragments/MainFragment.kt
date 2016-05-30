@@ -16,16 +16,16 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment : Fragment() {
 
     /** Variable zone **/
-    lateinit var param1: String
+    var point: Int = 0
 
 
     /** Static method zone **/
     companion object {
         val ARG_1 = "ARG_1"
 
-        fun newInstance(param1: String): MainFragment {
+        fun newInstance(param1: Int): MainFragment {
             var bundle: Bundle = Bundle()
-            bundle.putString(ARG_1, param1)
+            bundle.putInt(ARG_1, param1)
             val templateFragment: MainFragment = MainFragment()
             templateFragment.arguments = bundle
             return templateFragment
@@ -39,7 +39,7 @@ class MainFragment : Fragment() {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             /* if newly created */
-            param1 = arguments.getString(ARG_1)
+            point = arguments.getInt(ARG_1)
         }
     }
 
@@ -54,14 +54,15 @@ class MainFragment : Fragment() {
         initInstance()
     }
 
+    override fun onStart() {
+        super.onStart()
+        tvPoint.text = "$point"
+    }
+
     /** Method zone **/
 
     private fun initInstance() {
-        tvPoint.text = "${SharePref.getPoint()}"
-        Glide.with(this).load("http://nationalave.com/wp-content/uploads/2016/05/hodor.jpg").centerCrop().into(civProfileImage)
-    }
-
-    fun setPoint(point: Int){
         tvPoint.text = "$point"
+        Glide.with(this).load("http://nationalave.com/wp-content/uploads/2016/05/hodor.jpg").centerCrop().into(civProfileImage)
     }
 }
