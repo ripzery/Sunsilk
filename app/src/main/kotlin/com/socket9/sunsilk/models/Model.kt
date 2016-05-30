@@ -18,4 +18,13 @@ object Model{
             @JvmField val CREATOR = PaperParcelable.Creator(RedeemPrize::class.java)
         }
     }
+
+    @PaperParcel
+    data class RedeemPrizeList(var modelList: MutableList<RedeemPrize>): PaperParcelable{
+        companion object {
+            @JvmField val CREATOR = PaperParcelable.Creator(RedeemPrizeList::class.java)
+        }
+    }
+
+
 }

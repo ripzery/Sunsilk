@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".activities.RedeemDetailActivity">
         </activity>
+        <activity android:name=".activities.RedeemHistoryActivity">
+        </activity>
     </application>
 
 </manifest>

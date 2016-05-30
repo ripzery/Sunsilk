@@ -5,31 +5,27 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.socket9.sunsilk.R
-import com.socket9.sunsilk.models.Model
-import kotlinx.android.synthetic.main.fragment_redeem_detail.*
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
  */
-class RedeemDetailFragment : Fragment() {
+class RedeemHistoryFragment : Fragment() {
 
     /** Variable zone **/
-    lateinit var model: Model.RedeemPrize
+    lateinit var param1: String
 
 
     /** Static method zone **/
     companion object {
         val ARG_1 = "ARG_1"
 
-        fun newInstance(param1: Model.RedeemPrize): RedeemDetailFragment {
+        fun newInstance(param1: String): RedeemHistoryFragment {
             var bundle: Bundle = Bundle()
-            bundle.putParcelable(ARG_1, param1)
-            val redeemDetailFragment: RedeemDetailFragment = RedeemDetailFragment()
-            redeemDetailFragment.arguments = bundle
-            return redeemDetailFragment
+            bundle.putString(ARG_1, param1)
+            val redeemHistoryFragment: RedeemHistoryFragment = RedeemHistoryFragment()
+            redeemHistoryFragment.arguments = bundle
+            return redeemHistoryFragment
         }
 
     }
@@ -40,12 +36,12 @@ class RedeemDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             /* if newly created */
-            model = arguments.getParcelable(ARG_1)
+            param1 = arguments.getString(ARG_1)
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView: View = inflater!!.inflate(R.layout.fragment_redeem_detail, container, false)
+        val rootView: View = inflater!!.inflate(R.layout.fragment_redeem_history, container, false)
 
         return rootView
     }
@@ -58,11 +54,6 @@ class RedeemDetailFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
-        with(model){
-            tvPrizeTitle.text = title
-            tvPrizePoint.text = "$point"
-            tvDescription.text = description
-            Glide.with(context).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivPrize)
-        }
+
     }
 }
