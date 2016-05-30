@@ -21,7 +21,7 @@ class MainTabAdapter : FragmentPagerAdapter {
     private val POSITION_THREE = 2;
     private val POSITION_FOUR = 3;
     lateinit private var context:Context
-    lateinit private var mainFragment: Fragment
+    lateinit private var mainFragment: MainFragment
     lateinit private var scanBarcodeFragment: ScanBarcodeFragment
     lateinit private var redeemPointFragment: RedeemPointFragment
     lateinit  var contentFragment: ContentFragment
@@ -50,6 +50,10 @@ class MainTabAdapter : FragmentPagerAdapter {
             POSITION_THREE -> return redeemPointFragment
             else -> return contentFragment
         }
+    }
+
+    fun setPoint(point: Int){
+        mainFragment.setPoint(point)
     }
 
     override fun getCount(): Int {

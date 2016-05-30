@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.socket9.sunsilk.R
 import com.socket9.sunsilk.activities.ScannerActivity
 import com.socket9.sunsilk.adapter.HowToScanAdapter
+import com.socket9.sunsilk.managers.SharePref
 import com.socket9.thetsl.extensions.toast
 import kotlinx.android.synthetic.main.fragment_scan_barcode.*
 import org.jetbrains.anko.alert
@@ -63,11 +64,14 @@ class ScanBarcodeFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK){
-            val dialog = alert("ยินดีด้วย ") {
-                positiveButton("Yes") { toast("เย่ เย่") }
-                negativeButton("No") {}
-            }
             val point = (Math.random() * 10 + 1).toInt()
+            val dialog = alert("ยินดีด้วย ") {
+                positiveButton("OK") {
+                    toast("เย่ เย่")
+                    SharePref.savePoint(point + SharePref.getPoint())
+                }
+            }
+            dialog.cancellable(false)
             dialog.message("คุณได้รับ $point คะแนน")
             dialog.show()
         }

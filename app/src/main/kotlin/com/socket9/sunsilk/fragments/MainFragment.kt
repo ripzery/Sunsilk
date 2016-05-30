@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.managers.SharePref
 import kotlinx.android.synthetic.main.fragment_main.*
 
 /**
@@ -56,6 +57,11 @@ class MainFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
+        tvPoint.text = "${SharePref.getPoint()}"
         Glide.with(this).load("http://nationalave.com/wp-content/uploads/2016/05/hodor.jpg").centerCrop().into(civProfileImage)
+    }
+
+    fun setPoint(point: Int){
+        tvPoint.text = "$point"
     }
 }

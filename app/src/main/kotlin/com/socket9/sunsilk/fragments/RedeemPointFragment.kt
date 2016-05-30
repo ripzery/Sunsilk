@@ -2,10 +2,13 @@ package com.socket9.sunsilk.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.adapter.RedeemAdapter
+import kotlinx.android.synthetic.main.fragment_redeem_point.*
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
@@ -54,6 +57,8 @@ class RedeemPointFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
-
+        val layoutManager: LinearLayoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = RedeemAdapter.newInstance()
     }
 }
