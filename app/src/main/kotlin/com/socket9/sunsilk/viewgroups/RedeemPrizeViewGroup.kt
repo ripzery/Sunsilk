@@ -58,7 +58,7 @@ class RedeemPrizeViewGroup : FrameLayout {
 
     fun getClickObservable() : Observable<Int>{
         return rowClickedObservable
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
     }
 

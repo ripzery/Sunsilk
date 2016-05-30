@@ -7,14 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.RedeemDetailActivity
 import com.socket9.sunsilk.adapter.RedeemAdapter
+import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.fragment_redeem_point.*
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
  */
-class RedeemPointFragment : Fragment() {
-
+class RedeemPointFragment : Fragment(), RedeemAdapter.RedeemClickInterface {
     /** Variable zone **/
     lateinit var param1: String
 
@@ -59,6 +61,10 @@ class RedeemPointFragment : Fragment() {
     private fun initInstance() {
         val layoutManager: LinearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = RedeemAdapter.newInstance()
+        recyclerView.adapter = RedeemAdapter.newInstance(listener = this)
+    }
+
+    override fun onClick(position: Int, model: Model.RedeemPrize) {
+        startActivity<RedeemDetailActivity>(RedeemDetailActivity.INTENT_KEY_PARAM1 to model)
     }
 }

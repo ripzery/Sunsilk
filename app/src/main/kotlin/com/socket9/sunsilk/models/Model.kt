@@ -10,8 +10,10 @@ import nz.bradcampbell.paperparcel.PaperParcelable
 
 object Model{
 
+    val defaultPlaceHolder = "https://placeholdit.imgix.net/~text?txtsize=33&txt=350×150&w=350&h=150"
+
     @PaperParcel
-    data class RedeemPrize(val title: String, val point: Int, val description: String): PaperParcelable{
+    data class RedeemPrize(val title: String, val point: Int, val description: String, var imageUrl: String = defaultPlaceHolder): PaperParcelable{
         companion object {
             @JvmField val CREATOR = PaperParcelable.Creator(RedeemPrize::class.java)
         }
