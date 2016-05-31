@@ -1,5 +1,6 @@
 package com.socket9.sunsilk
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.managers.SharePref
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.AnkoLogger
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
     /** Variable zone **/
@@ -46,6 +48,10 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
                 return super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
     /** Method zone **/

@@ -84,7 +84,7 @@ class RedeemPrizeViewGroup : FrameLayout {
             tvTitle.text = title
             tvPoint.text = "$point points"
             tvDescription.text = description
-            Glide.with(context).load(model.imageUrl).into(ivCoverImg)
+            Glide.with(context).load(model.imageUrl).crossFade().into(ivCoverImg)
         }
     }
 

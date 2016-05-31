@@ -1,5 +1,6 @@
 package com.socket9.sunsilk.activities
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,6 +8,7 @@ import com.socket9.sunsilk.R
 import com.socket9.sunsilk.fragments.RedeemDetailFragment
 import com.socket9.sunsilk.models.Model
 import com.socket9.thetsl.extensions.replaceFragment
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class RedeemDetailActivity : AppCompatActivity() {
 
@@ -35,11 +37,17 @@ class RedeemDetailActivity : AppCompatActivity() {
         }
     }
 
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
+
     /** Method zone **/
 
     private fun initInstance() {
         val model = intent.getParcelableExtra<Model.RedeemPrize>(INTENT_KEY_PARAM1)
-        redeemDetailFragment = RedeemDetailFragment.newInstance(model)
+        val isFromHistory = intent.getBooleanExtra("isHistory", false)
+
+        redeemDetailFragment = RedeemDetailFragment.newInstance(model, isFromHistory)
         replaceFragment(fragment = redeemDetailFragment)
 
         supportActionBar?.setHomeButtonEnabled(true)

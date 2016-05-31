@@ -15,34 +15,64 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            tools:text="Prize A"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="24sp"/>
 
-        <TextView
-            android:id="@+id/tvPoint"
-            tools:text="10 Points"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+        <FrameLayout
+            android:id="@+id/layoutTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivCoverImg"
+                android:layout_width="match_parent"
+                android:layout_height="156dp"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="#44000000"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    tools:text="Prize A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="24sp"/>
+
+                <TextView
+                    android:id="@+id/tvPoint"
+                    tools:text="10 Points"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tvDescription"
-            android:layout_below="@+id/tvTitle"
+            android:layout_below="@+id/layoutTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:maxLines="3"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             android:fontFamily="sans-serif-light"
             android:textColor="@android:color/white"
             android:ellipsize="end"
@@ -58,6 +88,8 @@
             android:textAllCaps="true"
             android:layout_below="@id/tvDescription"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             tools:text="redeemed : Mon 12 Jun 2016"/>
 

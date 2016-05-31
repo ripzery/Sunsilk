@@ -7,15 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.RedeemDetailActivity
 import com.socket9.sunsilk.adapter.RedeemHistoryAdapter
 import com.socket9.sunsilk.managers.SharePref
+import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.fragment_redeem_history.*
+import org.jetbrains.anko.support.v4.startActivity
+
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
  */
-class RedeemHistoryFragment : Fragment() {
-
+class RedeemHistoryFragment : Fragment(), RedeemHistoryAdapter.RedeemHistoryClickInterface {
     /** Variable zone **/
     lateinit var param1: String
 
@@ -56,13 +59,20 @@ class RedeemHistoryFragment : Fragment() {
 
     /** Method zone **/
 
+
+
     private fun initInstance() {
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = linearLayoutManager
         val redeemList = SharePref.getRedeemHistory().modelList
-        val adapter = RedeemHistoryAdapter(redeemList)
+        val adapter = RedeemHistoryAdapter(redeemList, this)
         recyclerView.adapter = adapter
 
         tvEmpty.visibility = if(redeemList.size > 0) View.GONE else View.VISIBLE
     }
+
+    override fun onClick(position: Int, model: Model.RedeemPrizeHistory) {
+        startActivity<RedeemDetailActivity>("isHistory" to true, RedeemDetailActivity.INTENT_KEY_PARAM1 to model.redeemPrize)
+    }
+
 }

@@ -20,13 +20,13 @@ import org.jetbrains.anko.info
 class RedeemHistoryAdapter : RecyclerView.Adapter<RedeemHistoryAdapter.RedeemHistoryViewHolder>, AnkoLogger {
 
     lateinit var redeemList: MutableList<Model.RedeemPrizeHistory>
-    private var listener: RedeemAdapter.RedeemClickInterface? = null
+    private var listener: RedeemHistoryAdapter.RedeemHistoryClickInterface? = null
 
     companion object {
         val defaultImgUrl = "https://source.unsplash.com/category/food/400x225"
 
-        fun newInstance(redeemList: MutableList<Model.RedeemPrizeHistory>): RedeemHistoryAdapter {
-            return RedeemHistoryAdapter(redeemList)
+        fun newInstance(redeemList: MutableList<Model.RedeemPrizeHistory>, listener: RedeemHistoryClickInterface): RedeemHistoryAdapter {
+            return RedeemHistoryAdapter(redeemList, listener)
         }
     }
 
@@ -44,24 +44,31 @@ class RedeemHistoryAdapter : RecyclerView.Adapter<RedeemHistoryAdapter.RedeemHis
     }
 
 
-    constructor(redeemList: MutableList<Model.RedeemPrizeHistory>) {
+    constructor(redeemList: MutableList<Model.RedeemPrizeHistory>, listener: RedeemHistoryClickInterface) {
         this.redeemList = redeemList
+        this.listener = listener
     }
 
     inner class RedeemHistoryViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
 
-
-        // TODO : Find redeem view group
         lateinit var redeemViewGroup: RedeemHistoryViewGroup;
 
         init {
             // find itemView here
             redeemViewGroup = itemView!!.find<RedeemHistoryViewGroup>(R.id.redeemHistoryViewGroup)
+
+            redeemViewGroup.getClickObservable().subscribe {
+                listener?.onClick(adapterPosition, redeemList[adapterPosition])
+            }
         }
 
         fun setModel(model : Model.RedeemPrizeHistory){
             redeemViewGroup.setModel(model)
         }
 
+    }
+
+    interface RedeemHistoryClickInterface{
+        fun onClick(position:Int, model: Model.RedeemPrizeHistory)
     }
 }

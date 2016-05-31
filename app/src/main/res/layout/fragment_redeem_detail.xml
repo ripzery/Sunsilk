@@ -8,46 +8,63 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvPrizeTitle"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/ivPrize"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_height="240dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                tools:text="Prize A"/>
+                android:layout_gravity="bottom"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="#44000000"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvPrizePoint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:textSize="20sp"
-                tools:text="10 Pt."/>
+                <TextView
+                    android:id="@+id/tvPrizeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@android:color/white"
+                    tools:text="Prize A"/>
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvPrizePoint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    tools:text="10 Pt."/>
 
-        <ImageView
-            android:id="@+id/ivPrize"
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="180dp"/>
+            </LinearLayout>
+
+
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lorem"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="18sp"
             android:maxLines="3"
             android:layout_marginTop="16dp"
             />
@@ -56,6 +73,9 @@
             android:id="@+id/tvNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="18sp"
             android:text="@string/redeem_note"
             android:layout_marginTop="16dp"
             android:maxLines="3"/>
@@ -65,6 +85,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:gravity="bottom"
             android:orientation="vertical">
 

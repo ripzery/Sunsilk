@@ -24,16 +24,19 @@ class RedeemDetailFragment : Fragment() {
 
     /** Variable zone **/
     lateinit var model: Model.RedeemPrize
+    var isFromHistory: Boolean = false
     val shareLink = "https://youtu.be/Rl-0SBZQeMg"
 
 
     /** Static method zone **/
     companion object {
         val ARG_1 = "ARG_1"
+        val ARG_2 = "ARG_2"
 
-        fun newInstance(param1: Model.RedeemPrize): RedeemDetailFragment {
+        fun newInstance(param1: Model.RedeemPrize, fromHistory: Boolean): RedeemDetailFragment {
             var bundle: Bundle = Bundle()
             bundle.putParcelable(ARG_1, param1)
+            bundle.putBoolean(ARG_2, fromHistory)
             val redeemDetailFragment: RedeemDetailFragment = RedeemDetailFragment()
             redeemDetailFragment.arguments = bundle
             return redeemDetailFragment
@@ -48,6 +51,7 @@ class RedeemDetailFragment : Fragment() {
         if (savedInstanceState == null) {
             /* if newly created */
             model = arguments.getParcelable(ARG_1)
+            isFromHistory = arguments.getBoolean(ARG_2)
         }
     }
 
@@ -69,7 +73,7 @@ class RedeemDetailFragment : Fragment() {
     private fun initInstance() {
         with(model) {
             tvPrizeTitle.text = title
-            tvPrizePoint.text = "$point"
+            tvPrizePoint.text = "$point points"
             tvDescription.text = description
             Glide.with(context).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivPrize)
 
@@ -106,6 +110,10 @@ class RedeemDetailFragment : Fragment() {
             btnRedeem.isEnabled = false
             tvRedeemPointWarning.visibility = View.VISIBLE
             tvRedeemPointWarning.text = "You need to earn more ${point - SharePref.getPoint()} points to redeem"
+        }
+
+        if(isFromHistory){
+            btnRedeem.visibility = View.GONE
         }
     }
 }
