@@ -11,4 +11,9 @@
         <item name="colorButtonNormal">@color/colorGreen</item>
     </style>
 
+    <style name="BaseButton.Red">
+        <!--<item name="android:background">@drawable/rounded_bg_green</item>-->
+        <item name="colorButtonNormal">@color/colorRed</item>
+    </style>
+
 </resources>

@@ -24,9 +24,23 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
     companion object {
         val defaultImgUrl = "https://source.unsplash.com/category/food/400x225"
         val defaultList: MutableList<Model.RedeemPrize> = mutableListOf(
-                Model.RedeemPrize("Prize A", 10, Contextor.context.getString(R.string.lorem), defaultImgUrl),
-                Model.RedeemPrize("Prize B", 20, "Description B", defaultImgUrl),
-                Model.RedeemPrize("Prize C", 30, "Description C", defaultImgUrl)
+                Model.RedeemPrize("ปลาทู Gold", 10, "A brand new ปลาทู gold edition will give you an amazingly meal. Experienced the most valuable ปลาทู. Redeem now and go to cook rice!", "http://f.ptcdn.info/807/037/000/nyhn6610hgoX464S4FH-o.jpg"),
+                Model.RedeemPrize("Pop Annop",
+                        20,
+                        "404 description has not found",
+                        "http://photos4.meetupstatic.com/photos/member/8/2/5/2/member_81933362.jpeg"),
+                Model.RedeemPrize("ยาหม่อง",
+                        30,
+                        "Experienced the best ยาหม่อง in our galaxy.",
+                        "http://q.lnwfile.com/_/q/_raw/0y/ye/rm.png"),
+                Model.RedeemPrize("Chromecast",
+                        40,
+                        "Cast your favorite entertainment from your phone straight to your TV.",
+                        "https://www.google.com/chromecast/static/images/tv/chromecast.jpg"),
+                Model.RedeemPrize("Macbook 2015",
+                        50,
+                        "It’s the future of the notebook. And now, with sixth‑generation Intel processors, improved graphics performance, faster flash storage, and up to 10 hours of battery life,* MacBook is even more capable.",
+                        "http://store.storeimages.cdn-apple.com/4973/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-gold-201604?wid=1200&hei=630&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=VmqkF1")
         )
 
         fun newInstance(redeemList: MutableList<Model.RedeemPrize> = defaultList, listener: RedeemClickInterface): RedeemAdapter {

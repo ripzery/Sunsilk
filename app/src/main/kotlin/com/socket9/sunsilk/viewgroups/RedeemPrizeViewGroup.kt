@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import com.bumptech.glide.Glide
 import com.socket9.sunsilk.R
 import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.viewgroup_redeem_prize.view.*
@@ -83,6 +84,7 @@ class RedeemPrizeViewGroup : FrameLayout {
             tvTitle.text = title
             tvPoint.text = "$point points"
             tvDescription.text = description
+            Glide.with(context).load(model.imageUrl).into(ivCoverImg)
         }
     }
 

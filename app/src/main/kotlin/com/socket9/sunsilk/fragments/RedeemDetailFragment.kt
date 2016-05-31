@@ -14,6 +14,7 @@ import com.socket9.thetsl.extensions.loadingTwoSecThen
 import com.socket9.thetsl.extensions.showDialog
 import kotlinx.android.synthetic.main.fragment_redeem_detail.*
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.support.v4.share
 import java.util.*
 
 /**
@@ -23,6 +24,7 @@ class RedeemDetailFragment : Fragment() {
 
     /** Variable zone **/
     lateinit var model: Model.RedeemPrize
+    val shareLink = "https://youtu.be/Rl-0SBZQeMg"
 
 
     /** Static method zone **/
@@ -71,23 +73,39 @@ class RedeemDetailFragment : Fragment() {
             tvDescription.text = description
             Glide.with(context).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivPrize)
 
-            val redeemHistory = Model.RedeemPrizeHistory(model, Date())
-            if (SharePref.getRedeemHistory().hasPrizeHistoryFrom(redeemHistory)) {
-                btnRedeem.isEnabled = false
-            }
+            shouldRedeemable(point)
         }
     }
 
     private fun initListener() {
         btnRedeem.onClick { redeem(model) }
+        btnTellFriend.onClick { share("Redeem ${model.title} for only ${model.point} points until 31/06/2016! You may also interest in this video $shareLink", "New redeem prize from Sunsilk!") }
     }
 
     private fun redeem(model: Model.RedeemPrize) {
-        loadingTwoSecThen() {
-            val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
-            SharePref.saveRedeemHistory(redeemModel)
-            showDialog("Congratulation", "The prize will be sent to your account soon")
+        var point = SharePref.getPoint()
+
+        if(point < model.point){
+            showDialog("Insufficient Point", "You need ${model.point - point} more points to redeem!")
+        }else{
+            point -= model.point
+            loadingTwoSecThen() {
+                val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
+                SharePref.saveRedeemHistory(redeemModel)
+                showDialog("Congratulation", "The prize will be sent to your account soon. You have $point points left")
+                SharePref.savePoint(point)
+                shouldRedeemable(model.point)
+            }
+        }
+
+    }
+
+    private fun shouldRedeemable(point: Int) {
+        val isRedeemable = SharePref.getPoint() < point
+        if (isRedeemable) {
             btnRedeem.isEnabled = false
+            tvRedeemPointWarning.visibility = View.VISIBLE
+            tvRedeemPointWarning.text = "You need to earn more ${point - SharePref.getPoint()} points to redeem"
         }
     }
 }

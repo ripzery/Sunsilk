@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Sunsilk</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel arcu neque. Cras pellentesque eros quam, a sodales urna laoreet at. Suspendisse pellentesque neque risus, quis convallis nibh scelerisque ut. Sed in auctor erat, vel luctus nulla. Donec auctor augue at nisi accumsan, a fermentum leo pharetra. Aliquam tristique velit nec auctor pretium. Sed ultrices dui consectetur libero semper faucibus. Integer varius hendrerit laoreet.</string>
+    <string name="clear_redeem_history">Clear redeem history</string>
+    <string name="clear_point">Clear point</string>
+    <string name="redeem_note">*หมายเหตุ* ของรางวัลจะถูกส่งให้ในรูปแบบ Line Coupon ผ่านทาง Line Sunsilk Official ในกรณีที่มีการ Block อาจจะทำให้ไม่ได้รับรางวัลได้</string>
 </resources>

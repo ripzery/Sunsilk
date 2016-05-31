@@ -44,5 +44,6 @@ class RedeemDetailActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "${model.title} Detail"
     }
 }

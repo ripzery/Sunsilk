@@ -43,5 +43,7 @@ fun Fragment.loadingTwoSecThen(title: String = "Please wait", message: String = 
 }
 
 fun Fragment.showDialog(title: String, message: String){
-    alert(message, title).show()
+    alert(message, title){
+        positiveButton("OK"){}
+    }.show()
 }

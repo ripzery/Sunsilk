@@ -1,28 +1,23 @@
 package com.socket9.sunsilk
 
-import android.app.Activity
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
+import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.socket9.sunsilk.adapter.MainTabAdapter
-import com.socket9.sunsilk.adapter.RedeemAdapter
 import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.managers.SharePref
-import com.socket9.thetsl.extensions.replaceFragment
-import com.socket9.thetsl.extensions.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.layout_toolbar.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.alert
-import org.jetbrains.anko.appcompat.v7.toolbar
-import org.jetbrains.anko.info
-import org.jetbrains.anko.support.v4.alert
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
+    /** Variable zone **/
+
     private var mainFragment: MainFragment? = null
     private var mainTabAdapter: MainTabAdapter? = null
+
+    /** Lifecycle method zone **/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +26,29 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         initToolbar()
         initInstance()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_options, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item!!.itemId) {
+            R.id.menu_clear_point -> {
+                SharePref.savePoint(0)
+                return true
+            }
+            R.id.menu_clear_history -> {
+                SharePref.sharePref.edit().putString(SharePref.SHARE_PREF_REDEEM_HISTORY, "").apply()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    /** Method zone **/
 
     private fun initToolbar() {
         supportActionBar?.elevation = 0f
@@ -44,7 +62,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
         tabLayout.setupWithViewPager(viewpager)
 
-        tabLayout.setOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+        tabLayout.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabUnselected(tab: TabLayout.Tab?) {
 
             }
@@ -52,7 +70,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 viewpager.currentItem = tab!!.position
 
-                if(tab.position == 0){
+                if (tab.position == 0) {
                     val mainTab = supportFragmentManager.findFragmentByTag("android:switcher:${R.id.viewpager}:${viewpager.currentItem}") as MainFragment
                     mainTab.updatePoint()
                 }
