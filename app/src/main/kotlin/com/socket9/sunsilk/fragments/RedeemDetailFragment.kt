@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.managers.SharePref
 import com.socket9.sunsilk.models.Model
+import com.socket9.thetsl.extensions.loadingTwoSecThen
+import com.socket9.thetsl.extensions.showDialog
 import kotlinx.android.synthetic.main.fragment_redeem_detail.*
+import org.jetbrains.anko.onClick
+import java.util.*
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
@@ -53,16 +58,36 @@ class RedeemDetailFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initInstance()
+
+        initListener()
     }
 
     /** Method zone **/
 
     private fun initInstance() {
-        with(model){
+        with(model) {
             tvPrizeTitle.text = title
             tvPrizePoint.text = "$point"
             tvDescription.text = description
             Glide.with(context).load(imageUrl).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivPrize)
+
+            val redeemHistory = Model.RedeemPrizeHistory(model, Date())
+            if (SharePref.getRedeemHistory().hasPrizeHistoryFrom(redeemHistory)) {
+                btnRedeem.isEnabled = false
+            }
+        }
+    }
+
+    private fun initListener() {
+        btnRedeem.onClick { redeem(model) }
+    }
+
+    private fun redeem(model: Model.RedeemPrize) {
+        loadingTwoSecThen() {
+            val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
+            SharePref.saveRedeemHistory(redeemModel)
+            showDialog("Congratulation", "The prize will be sent to your account soon")
+            btnRedeem.isEnabled = false
         }
     }
 }

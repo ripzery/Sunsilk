@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment : Fragment() {
 
     /** Variable zone **/
-    var point: Int = 0
+    private var point: Int = 0
 
 
     /** Static method zone **/
@@ -56,7 +56,10 @@ class MainFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        tvPoint.text = "$point"
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     /** Method zone **/
@@ -64,5 +67,10 @@ class MainFragment : Fragment() {
     private fun initInstance() {
         tvPoint.text = "$point"
         Glide.with(this).load("http://nationalave.com/wp-content/uploads/2016/05/hodor.jpg").centerCrop().into(civProfileImage)
+    }
+
+    fun updatePoint() {
+        point = SharePref.getPoint()
+        tvPoint.text = "$point"
     }
 }

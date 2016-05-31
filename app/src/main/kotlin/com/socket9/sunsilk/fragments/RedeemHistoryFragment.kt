@@ -2,10 +2,14 @@ package com.socket9.sunsilk.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.adapter.RedeemHistoryAdapter
+import com.socket9.sunsilk.managers.SharePref
+import kotlinx.android.synthetic.main.fragment_redeem_history.*
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
@@ -42,7 +46,6 @@ class RedeemHistoryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView: View = inflater!!.inflate(R.layout.fragment_redeem_history, container, false)
-
         return rootView
     }
 
@@ -54,6 +57,12 @@ class RedeemHistoryFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
+        val linearLayoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = linearLayoutManager
+        val redeemList = SharePref.getRedeemHistory().modelList
+        val adapter = RedeemHistoryAdapter(redeemList)
+        recyclerView.adapter = adapter
 
+        tvEmpty.visibility = if(redeemList.size > 0) View.GONE else View.VISIBLE
     }
 }

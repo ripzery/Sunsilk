@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import com.socket9.sunsilk.adapter.MainTabAdapter
+import com.socket9.sunsilk.adapter.RedeemAdapter
 import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.managers.SharePref
 import com.socket9.thetsl.extensions.replaceFragment
@@ -50,6 +51,12 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 viewpager.currentItem = tab!!.position
+
+                if(tab.position == 0){
+                    val mainTab = supportFragmentManager.findFragmentByTag("android:switcher:${R.id.viewpager}:${viewpager.currentItem}") as MainFragment
+                    mainTab.updatePoint()
+                }
+
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {

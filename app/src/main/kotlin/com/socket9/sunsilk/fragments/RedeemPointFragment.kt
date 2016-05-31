@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
 import com.socket9.sunsilk.activities.RedeemDetailActivity
+import com.socket9.sunsilk.activities.RedeemHistoryActivity
 import com.socket9.sunsilk.adapter.RedeemAdapter
 import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.fragment_redeem_point.*
+import org.jetbrains.anko.onClick
 import org.jetbrains.anko.support.v4.startActivity
 
 /**
@@ -62,6 +64,8 @@ class RedeemPointFragment : Fragment(), RedeemAdapter.RedeemClickInterface {
         val layoutManager: LinearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = RedeemAdapter.newInstance(listener = this)
+
+        btnRedeem.onClick { startActivity<RedeemHistoryActivity>() }
     }
 
     override fun onClick(position: Int, model: Model.RedeemPrize) {

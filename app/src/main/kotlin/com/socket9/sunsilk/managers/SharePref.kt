@@ -3,12 +3,14 @@ package com.socket9.sunsilk.managers
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.socket9.sunsilk.models.Model
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
 /**
  * Created by Euro (ripzery@gmail.com) on 5/27/16 AD.
  */
 
-object SharePref{
+object SharePref: AnkoLogger{
 
     lateinit var sharePref: SharedPreferences
 
@@ -23,21 +25,21 @@ object SharePref{
         return sharePref.getInt(SHARE_PREF_POINT, 0)
     }
 
-    fun saveRedeemHistory(model: Model.RedeemPrize){
+    fun saveRedeemHistory(model: Model.RedeemPrizeHistory){
         val redeemHistoryList = getRedeemHistory()
-        redeemHistoryList.add(model)
+        redeemHistoryList.modelList.add(model)
         sharePref.edit().putString(SHARE_PREF_REDEEM_HISTORY, Gson().toJson(redeemHistoryList)).apply()
     }
 
-    fun getRedeemHistory(): MutableList<Model.RedeemPrize> {
-        val redeemHistoryString = sharePref.getString(SHARE_PREF_REDEEM_HISTORY, "")
-        var list: Model.RedeemPrizeList = Model.RedeemPrizeList(mutableListOf<Model.RedeemPrize>())
+    fun getRedeemHistory(): Model.RedeemPrizeHistoryList {
+        var list: Model.RedeemPrizeHistoryList = Model.RedeemPrizeHistoryList(mutableListOf<Model.RedeemPrizeHistory>())
         try {
-            list = Gson().fromJson(redeemHistoryString, Model.RedeemPrizeList::class.java)
+            val redeemHistoryString = sharePref.getString(SHARE_PREF_REDEEM_HISTORY, "")
+            list = Gson().fromJson(redeemHistoryString, Model.RedeemPrizeHistoryList::class.java)
         }catch(e: Exception){
             e.printStackTrace()
         }finally{
-            return list.modelList
+            return list
         }
     }
 }
