@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.ArticleActivity
+import com.socket9.sunsilk.activities.GalleryActivity
+import kotlinx.android.synthetic.main.fragment_content.*
+import org.jetbrains.anko.onClick
+import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * Created by Euro (ripzery@gmail.com) on 3/10/16 AD.
@@ -54,6 +59,12 @@ class ContentFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
+        btnArticle.onClick {
+            startActivity<ArticleActivity>()
+        }
 
+        btnGallery.onClick {
+            startActivity<GalleryActivity>()
+        }
     }
 }

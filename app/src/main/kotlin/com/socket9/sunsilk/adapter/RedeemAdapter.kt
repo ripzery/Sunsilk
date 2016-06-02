@@ -25,10 +25,6 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
         val defaultImgUrl = "https://source.unsplash.com/category/food/400x225"
         val defaultList: MutableList<Model.RedeemPrize> = mutableListOf(
                 Model.RedeemPrize("ปลาทู Gold", 10, "A brand new ปลาทู gold edition will give you an amazingly meal. Experienced the most valuable ปลาทู. Redeem now and go to cook rice!", "http://f.ptcdn.info/807/037/000/nyhn6610hgoX464S4FH-o.jpg"),
-                Model.RedeemPrize("Pop Annop",
-                        20,
-                        "404 description has not found",
-                        "http://photos4.meetupstatic.com/photos/member/8/2/5/2/member_81933362.jpeg"),
                 Model.RedeemPrize("ยาหม่อง",
                         30,
                         "Experienced the best ยาหม่อง in our galaxy.",

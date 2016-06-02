@@ -9,7 +9,6 @@
     <color name="colorGreen">#4CAF50</color>
     <color name="colorTeal">#009688</color>
     <color name="colorRed">#F44336</color>
-    <color name="colorGrey">#E0E0E0</color>
     <color name="colorIndigo">#3F51B5</color>
 
     <!--material color 300's shade -->
@@ -24,4 +23,31 @@
     <color name="colorCyanDarker">#0097a7</color>
     <color name="colorTealDarker">#00796b</color>
 
+
+
+    <!-- Design Sunsilk -->
+    <color name="colorPink">#E5267B</color>
+    <color name="colorPinkDark">#A91956	</color>
+    <color name="colorPinkLight">#F867A7</color>
+    <color name="colorPinkHighlighter">#FF509F</color>
+
+    <color name="colorOrange">#F35C2A</color>
+    <color name="colorOrangeHighlighter">#FF7E4B</color>
+
+    <color name="colorPurple">#422466</color>
+    <color name="colorPurpleHighlighter">#7A6493</color>
+
+    <color name="colorGrey">#EBEBEB</color>
+
+    <color name="colorBlue">#42C4BA</color>
+    <color name="colorBlueHighlighter">#7CD8CF</color>
+    <color name="colorBlueLighter">#3DDFD1</color>
+    <color name="colorBlueDarker">#10C5B7</color>
+
+    <color name="colorFontBlack">#252525</color>
+    <color name="colorFontBlue">#A7D2CE</color>
+    <color name="colorFontWhite">#FFFFFF</color>
+    <color name="colorFontPurple">#422466</color> <!-- colorPurple -->
+    <color name="colorFontOrange">#F35C2A</color> <!-- colorOrange -->
+    <color name="colorFontGrey">#898989</color> <!-- colorOrange -->
 </resources>

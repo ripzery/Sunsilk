@@ -12,7 +12,14 @@ android {
     targetSdkVersion 23
     versionCode 1
     versionName "1.0"
+    vectorDrawables.useSupportLibrary = true
   }
+
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+
+
   buildTypes {
     release {
       minifyEnabled false
@@ -56,6 +63,7 @@ dependencies {
   compile 'me.dm7.barcodescanner:zxing:1.8.4'
   compile 'net.danlew:android.joda:2.9.3.1'
   compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+  compile 'com.linsea:universalvideoview:1.1.0@aar'
 }
 
 buildscript {

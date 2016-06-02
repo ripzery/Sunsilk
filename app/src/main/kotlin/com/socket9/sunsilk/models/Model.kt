@@ -55,4 +55,32 @@ object Model{
         }
     }
 
+    @PaperParcel
+    data class Article(val title:String, val subtitle:String, val img:String = "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"): PaperParcelable{
+        companion object {
+            @JvmField val CREATOR = PaperParcelable.Creator(Article::class.java)
+        }
+    }
+
+    @PaperParcel
+    data class ArticlesList(val modelList: MutableList<Article>): PaperParcelable{
+        companion object {
+            @JvmField val CREATOR = PaperParcelable.Creator(ArticlesList::class.java)
+        }
+    }
+
+    @PaperParcel
+    data class Gallery(val point:Int, val description:String,val imageUrl:Int = 0): PaperParcelable{
+        companion object {
+            @JvmField val CREATOR = PaperParcelable.Creator(Gallery::class.java)
+        }
+    }
+
+    @PaperParcel
+    data class GalleryList(val modelList: MutableList<Gallery>): PaperParcelable{
+        companion object {
+            @JvmField val CREATOR = PaperParcelable.Creator(GalleryList::class.java)
+        }
+    }
+
 }

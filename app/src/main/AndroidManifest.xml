@@ -27,6 +27,10 @@
         </activity>
         <activity android:name=".activities.RedeemHistoryActivity">
         </activity>
+        <activity android:name=".activities.ArticleActivity">
+        </activity>
+        <activity android:name=".activities.GalleryActivity">
+        </activity>
     </application>
 
 </manifest>

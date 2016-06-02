@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContainer"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_height="128dp"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivImage"
+            android:layout_alignBaseline="@+id/btnUnlock"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            tools:text="เคล็ดลับผมนุ่มโดยยูตะ กาชิกิ"/>
+
+        <Button
+            android:id="@+id/btnUnlock"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height_small"
+            android:layout_below="@id/ivImage"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:theme="@style/BaseButton.BlueLighter"
+            android:drawableLeft="@drawable/ic_lock_outline"
+            android:text="คะแนนสะสม"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

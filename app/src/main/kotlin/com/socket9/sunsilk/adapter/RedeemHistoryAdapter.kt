@@ -5,13 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
-import com.socket9.sunsilk.managers.Contextor
 import com.socket9.sunsilk.models.Model
 import com.socket9.sunsilk.viewgroups.RedeemHistoryViewGroup
-import com.socket9.sunsilk.viewgroups.RedeemPrizeViewGroup
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.find
-import org.jetbrains.anko.info
 
 /**
  * Created by Euro (ripzery@gmail.com) on 5/30/16 AD.
@@ -39,7 +36,7 @@ class RedeemHistoryAdapter : RecyclerView.Adapter<RedeemHistoryAdapter.RedeemHis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RedeemHistoryViewHolder {
-        val view:View = LayoutInflater.from(parent!!.context).inflate(R.layout.viewholder_redeem_history, parent, false)
+        val view: View = LayoutInflater.from(parent!!.context).inflate(R.layout.viewholder_redeem_history, parent, false)
         return RedeemHistoryViewHolder(view)
     }
 
@@ -62,13 +59,13 @@ class RedeemHistoryAdapter : RecyclerView.Adapter<RedeemHistoryAdapter.RedeemHis
             }
         }
 
-        fun setModel(model : Model.RedeemPrizeHistory){
+        fun setModel(model: Model.RedeemPrizeHistory) {
             redeemViewGroup.setModel(model)
         }
 
     }
 
-    interface RedeemHistoryClickInterface{
-        fun onClick(position:Int, model: Model.RedeemPrizeHistory)
+    interface RedeemHistoryClickInterface {
+        fun onClick(position: Int, model: Model.RedeemPrizeHistory)
     }
 }

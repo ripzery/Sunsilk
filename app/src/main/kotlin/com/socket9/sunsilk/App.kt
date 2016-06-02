@@ -17,7 +17,7 @@ class App : Application(){
         Contextor.context = this
         JodaTimeAndroid.init(this);
 //        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
-//                .setDefaultFontPath("fonts/Kanit/Kanit-Thin.ttf")
+//                .setDefaultFontPath("fonts/adman/db_adman_x_v3.2.ttf")
 //                .setFontAttrId(R.attr.fontPath)
 //                .build())
     }
