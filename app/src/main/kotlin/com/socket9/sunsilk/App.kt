@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.socket9.sunsilk.managers.Contextor
 import com.socket9.sunsilk.managers.SharePref
+import jp.line.android.sdk.LineSdkContextManager
 import net.danlew.android.joda.JodaTimeAndroid
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
@@ -16,6 +17,7 @@ class App : Application(){
         SharePref.sharePref = getSharedPreferences("Sunsilk", Context.MODE_PRIVATE);
         Contextor.context = this
         JodaTimeAndroid.init(this);
+        LineSdkContextManager.initialize(this);
 //        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
 //                .setDefaultFontPath("fonts/adman/db_adman_x.ttf")
 //                .setFontAttrId(R.attr.fontPath)

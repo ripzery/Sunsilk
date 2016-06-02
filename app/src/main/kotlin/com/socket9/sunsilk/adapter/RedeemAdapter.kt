@@ -22,7 +22,7 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
 
     companion object {
         val defaultList: MutableList<Model.RedeemPrize> = mutableListOf(
-                Model.RedeemPrize("แลกรับครีมนวดผมฟรี 10 คะแนน", 10, "แลกรับครีมนวดผมฟรี 30 คะแนน เมื่อซื้อแชมพูขนาด 70 ml. ขึ้นไปในราคาปกติสูตรใดก็ได้ แลกรับฟรี ครีมนวดผมขนาด 60 ml. 1 ขวดสูตรเดียวกัน", R.drawable.redeem_ss),
+                Model.RedeemPrize("แลกรับครีมนวดผมฟรี 10 คะแนน", 10, "แลกรับครีมนวดผมฟรี 30 คะแนน เมื่อซื้อแชมพูขนาด 70 ml. ขึ้นไปในราคาปกติสูตรใดก็ได้ แลกรับฟรี ครีมนวดผมขนาด 60 ml. 1 ขวดสูตรเดียวกัน", R.drawable.redeem_sunsilk),
                 Model.RedeemPrize("แลกคะแนนกับ Line Pay 20 คะแนน",
                         20,
                         "แลกคะแนนกับ Line Pay 20 คะแนนแลกรับกันไปเลยทันทีกับเงินใน Line Pay มูลค่า 10 บาท",
