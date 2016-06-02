@@ -4,46 +4,149 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/bg_d">
 
     
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/civProfileImage"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="156dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="56dp"
         android:layout_gravity="center_horizontal"
         app:civ_border_width="3dp"
-        app:civ_border_color="@color/colorPrimary"
+        android:src="@drawable/profile"
+        app:civ_border_color="@color/colorPinkDark"
+        />
+    
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="36sp"
+        android:textColor="@color/colorFontWhite"
+        android:text="Jennifer Wilson"
         />
 
-    <RelativeLayout
+    <android.support.v4.widget.Space
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@drawable/rounded_bg_grey_green"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="128dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPinkDark"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvPointCumulative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#fff"
+                    android:textSize="64sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorFontWhite"
+                    android:textSize="18sp"
+                    android:text="คะแนนสะสม"/>
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPinkLight"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#fff"
+                    android:textSize="64sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorFontWhite"
+                    android:textSize="18sp"
+                    android:text="คะแนนที่ใช้ได้"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MY POINT"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="30sp"
-            android:layout_marginTop="32dp"/>
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/tvPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:layout_centerInParent="true"
-            android:textColor="#fff"
-            android:textSize="128sp"/>
+            <TextView
+                android:id="@+id/tvHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height_small"
+                android:drawableLeft="@drawable/ic_lock_outline"
+                android:gravity="center"
+                android:textColor="@color/colorFontWhite"
+                android:drawablePadding="8dp"
+                android:text="ประวัติการแลกรางวัล"/>
 
 
-    </RelativeLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_marginTop="16dp">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="MY POINT"-->
+            <!--android:fontFamily="sans-serif"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:textSize="30sp"-->
+            <!--android:layout_marginTop="32dp"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvPoint"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="0"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="128sp"/>-->
+
+
+    <!--</RelativeLayout>-->
     
 </LinearLayout>

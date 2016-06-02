@@ -43,7 +43,7 @@ class MainTabAdapter : FragmentPagerAdapter {
 
     override fun getItem(position: Int): Fragment? {
         when(position){
-            POSITION_ONE -> return MainFragment.newInstance(SharePref.getPoint()) 
+            POSITION_ONE -> return MainFragment.newInstance(SharePref.getPoint(), SharePref.getPointCumulative())
             POSITION_TWO -> return ScanBarcodeFragment.newInstance("")
             POSITION_THREE -> return RedeemPointFragment.newInstance("")
             POSITION_FOUR -> return ContentFragment.newInstance("")

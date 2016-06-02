@@ -1,11 +1,9 @@
-package com.socket9.thetsl.extensions
+package com.socket9.sunsilk.extensions
 
 import android.support.v4.app.Fragment
 import android.widget.Toast
-import com.socket9.sunsilk.MainActivity
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.indeterminateProgressDialog
-import org.jetbrains.anko.support.v4.startActivity
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -21,14 +19,14 @@ fun Fragment.toast(msg: String) {
     toaster?.show()
 }
 
-fun Fragment.replaceFragment(fragmentContainer:Int , fragment: Fragment) {
+fun Fragment.replaceFragment(fragmentContainer: Int, fragment: Fragment) {
     childFragmentManager.beginTransaction()
             .replace(fragmentContainer, fragment)
             .commit()
 }
 
-fun Fragment.loadingTwoSecThen(title: String = "Please wait", message: String = "Loading...",body: () -> Unit){
-   val dialog = indeterminateProgressDialog(message, title)
+fun Fragment.loadingTwoSecThen(title: String = "Please wait", message: String = "Loading...", body: () -> Unit) {
+    val dialog = indeterminateProgressDialog(message, title)
     dialog.dismiss()
     dialog.setCancelable(false)
     dialog.show()
@@ -42,8 +40,8 @@ fun Fragment.loadingTwoSecThen(title: String = "Please wait", message: String = 
             }
 }
 
-fun Fragment.showDialog(title: String, message: String){
-    alert(message, title){
-        positiveButton("OK"){}
+fun Fragment.showDialog(title: String, message: String) {
+    alert(message, title) {
+        positiveButton("OK") {}
     }.show()
 }

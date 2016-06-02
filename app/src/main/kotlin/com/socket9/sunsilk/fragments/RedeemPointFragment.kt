@@ -64,8 +64,6 @@ class RedeemPointFragment : Fragment(), RedeemAdapter.RedeemClickInterface {
         val layoutManager: LinearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = RedeemAdapter.newInstance(listener = this)
-
-        btnRedeem.onClick { startActivity<RedeemHistoryActivity>() }
     }
 
     override fun onClick(position: Int, model: Model.RedeemPrize) {

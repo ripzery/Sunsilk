@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.VideoActivity
 import com.socket9.sunsilk.adapter.GalleryAdapter
+import com.socket9.sunsilk.extensions.toast
 import com.socket9.sunsilk.models.Model
-import com.socket9.thetsl.extensions.toast
 import kotlinx.android.synthetic.main.fragment_redeem_point.*
+import org.jetbrains.anko.support.v4.startActivity
 
 
 /**
@@ -20,10 +22,10 @@ class GalleryFragment : Fragment(), GalleryAdapter.GalleryClickInterface {
     /** Variable zone **/
     lateinit var param1: String
     val galleryList: MutableList<Model.Gallery> = mutableListOf(
-            Model.Gallery(10, "ปลดล็อกซัมติง", R.drawable.gallery_video_1),
-            Model.Gallery(20, "ปลดล็อกซัมติง", R.drawable.gallery_video_2),
-            Model.Gallery(30, "ปลดล็อกซัมติง", R.drawable.gallery_video_3),
-            Model.Gallery(30, "ปลดล็อกซัมติง", R.drawable.gallery_video_4)
+            Model.Gallery(10, "ต้นไม้ออกลูกเป็นแพะ", R.drawable.gallery_video_1, "NqjwNW7heYA"),
+            Model.Gallery(20, "เมืองสีชมพู", R.drawable.gallery_video_2, "a4ZV9GWLT7A"),
+            Model.Gallery(30, "\"ฮัมมัม\" ห้องอาบน้ำรวม", R.drawable.gallery_video_3, "cUiLZTtx0k0"),
+            Model.Gallery(30, "สมบัติล้ำค่าของเบลล่า", R.drawable.gallery_video_4, "jOwe98IZAQo")
     )
 
 
@@ -63,9 +65,8 @@ class GalleryFragment : Fragment(), GalleryAdapter.GalleryClickInterface {
     }
 
     override fun onClick(position: Int, model: Model.Gallery) {
-        toast("$position")
+        startActivity<VideoActivity>("url" to model.url)
     }
-
 
     /** Method zone **/
 

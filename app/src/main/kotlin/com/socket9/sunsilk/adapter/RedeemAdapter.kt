@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.R
-import com.socket9.sunsilk.managers.Contextor
 import com.socket9.sunsilk.models.Model
 import com.socket9.sunsilk.viewgroups.RedeemPrizeViewGroup
 import org.jetbrains.anko.AnkoLogger
@@ -22,21 +21,24 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
     private var listener: RedeemAdapter.RedeemClickInterface? = null
 
     companion object {
-        val defaultImgUrl = "https://source.unsplash.com/category/food/400x225"
         val defaultList: MutableList<Model.RedeemPrize> = mutableListOf(
-                Model.RedeemPrize("ปลาทู Gold", 10, "A brand new ปลาทู gold edition will give you an amazingly meal. Experienced the most valuable ปลาทู. Redeem now and go to cook rice!", "http://f.ptcdn.info/807/037/000/nyhn6610hgoX464S4FH-o.jpg"),
-                Model.RedeemPrize("ยาหม่อง",
+                Model.RedeemPrize("แลกรับครีมนวดผมฟรี 10 คะแนน", 10, "แลกรับครีมนวดผมฟรี 30 คะแนน เมื่อซื้อแชมพูขนาด 70 ml. ขึ้นไปในราคาปกติสูตรใดก็ได้ แลกรับฟรี ครีมนวดผมขนาด 60 ml. 1 ขวดสูตรเดียวกัน", R.drawable.redeem_ss),
+                Model.RedeemPrize("แลกคะแนนกับ Line Pay 20 คะแนน",
+                        20,
+                        "แลกคะแนนกับ Line Pay 20 คะแนนแลกรับกันไปเลยทันทีกับเงินใน Line Pay มูลค่า 10 บาท",
+                        R.drawable.redeem_line_pay_2),
+                Model.RedeemPrize("แลกคะแนนกับ Ais 30 คะแนน",
                         30,
-                        "Experienced the best ยาหม่อง in our galaxy.",
-                        "http://q.lnwfile.com/_/q/_raw/0y/ye/rm.png"),
-                Model.RedeemPrize("Chromecast",
+                        "แลกบัตรเติมเงิน AIS 1-2-Call 30 คะแนน แลกรับบัตรเติมเงินในระบบ AIS 1-2-Call มูลค่า 20 บาท",
+                        R.drawable.redeem_ais),
+                Model.RedeemPrize("แลกคะแนนกับ True 40 คะแนน",
                         40,
-                        "Cast your favorite entertainment from your phone straight to your TV.",
-                        "https://www.google.com/chromecast/static/images/tv/chromecast.jpg"),
-                Model.RedeemPrize("Macbook 2015",
+                        "แลกบัตรเติมเงิน True Move-H 40 คะแนน แลกรับบัตรเติมเงินในระบบ True Move-H มูลค่า 20 บาท",
+                        R.drawable.redeem_truemove),
+                Model.RedeemPrize("แลกคะแนนกับ Dtac 50 คะแนน",
                         50,
-                        "It’s the future of the notebook. And now, with sixth‑generation Intel processors, improved graphics performance, faster flash storage, and up to 10 hours of battery life,* MacBook is even more capable.",
-                        "http://store.storeimages.cdn-apple.com/4973/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-gold-201604?wid=1200&hei=630&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=VmqkF1")
+                        "แลกบัตรเติมเงิน Dtac Happy 50 คะแนน แลกรับบัตรเติมเงินในระบบ Dtac มูลค่า 20 บาท",
+                        R.drawable.redeem_dtac)
         )
 
         fun newInstance(redeemList: MutableList<Model.RedeemPrize> = defaultList, listener: RedeemClickInterface): RedeemAdapter {
@@ -53,7 +55,7 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RedeemViewHolder {
-        val view:View = LayoutInflater.from(parent!!.context).inflate(R.layout.viewholder_redeem, parent, false)
+        val view: View = LayoutInflater.from(parent!!.context).inflate(R.layout.viewholder_redeem, parent, false)
         return RedeemViewHolder(view)
     }
 
@@ -79,13 +81,13 @@ class RedeemAdapter : RecyclerView.Adapter<RedeemAdapter.RedeemViewHolder>, Anko
             }
         }
 
-        fun setModel(model : Model.RedeemPrize){
+        fun setModel(model: Model.RedeemPrize) {
             redeemViewGroup.setModel(model)
         }
 
     }
 
-    interface RedeemClickInterface{
-        fun onClick(position:Int, model: Model.RedeemPrize)
+    interface RedeemClickInterface {
+        fun onClick(position: Int, model: Model.RedeemPrize)
     }
 }

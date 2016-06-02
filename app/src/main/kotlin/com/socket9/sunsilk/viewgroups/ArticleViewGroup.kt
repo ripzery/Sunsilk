@@ -78,7 +78,7 @@ class ArticleViewGroup : FrameLayout {
         with(model){
             tvTitle.text = title
             tvSubtitle.text = subtitle
-            Glide.with(context).load(R.drawable.profile).into(civLogo)
+            Glide.with(context).load(model.img).into(civLogo)
         }
     }
 

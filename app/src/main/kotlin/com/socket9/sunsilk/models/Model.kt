@@ -18,7 +18,7 @@ object Model{
     val defaultPlaceHolder = "https://placeholdit.imgix.net/~text?txtsize=33&txt=350×150&w=350&h=150"
 
     @PaperParcel
-    data class RedeemPrize(val title: String, val point: Int, val description: String, var imageUrl: String = defaultPlaceHolder): PaperParcelable{
+    data class RedeemPrize(val title: String, val point: Int, val description: String, var imageUrl: Int): PaperParcelable{
         companion object {
             @JvmField val CREATOR = PaperParcelable.Creator(RedeemPrize::class.java)
         }
@@ -56,7 +56,7 @@ object Model{
     }
 
     @PaperParcel
-    data class Article(val title:String, val subtitle:String, val img:String = "https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg"): PaperParcelable{
+    data class Article(val title:String, val subtitle:String, val img:Int, val url: String): PaperParcelable{
         companion object {
             @JvmField val CREATOR = PaperParcelable.Creator(Article::class.java)
         }
@@ -70,7 +70,7 @@ object Model{
     }
 
     @PaperParcel
-    data class Gallery(val point:Int, val description:String,val imageUrl:Int = 0): PaperParcelable{
+    data class Gallery(val point:Int, val description:String,val imageUrl:Int = 0, val url: String): PaperParcelable{
         companion object {
             @JvmField val CREATOR = PaperParcelable.Creator(Gallery::class.java)
         }

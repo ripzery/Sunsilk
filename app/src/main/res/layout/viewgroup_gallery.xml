@@ -5,9 +5,11 @@
     android:id="@+id/layoutContainer"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:clickable="true"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginTop="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
     android:layout_marginBottom="8dp">
 
     <RelativeLayout
@@ -36,7 +38,6 @@
             android:layout_height="@dimen/button_height_small"
             android:layout_below="@id/ivImage"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:drawablePadding="8dp"
             android:theme="@style/BaseButton.BlueLighter"

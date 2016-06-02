@@ -13,12 +13,4 @@
 
    </android.support.v7.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/btnRedeem"
-        android:layout_height="@dimen/button_height"
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        android:theme="@style/BaseButton.Green"
-        android:text="Redeem History" />
-
 </LinearLayout>

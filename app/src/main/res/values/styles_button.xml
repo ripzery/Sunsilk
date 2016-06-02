@@ -24,6 +24,10 @@
         <item name="colorButtonNormal">@color/colorPink</item>
     </style>
 
+    <style name="BaseButton.PinkLight">
+        <item name="colorButtonNormal">@color/colorPinkLight</item>
+    </style>
+
     <style name="BaseButton.BlueDarker">
         <item name="colorButtonNormal">@color/colorBlueDarker</item>
     </style>

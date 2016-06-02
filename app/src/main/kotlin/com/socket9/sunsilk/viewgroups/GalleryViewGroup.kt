@@ -9,11 +9,17 @@ import com.bumptech.glide.Glide
 import com.socket9.sunsilk.R
 import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.viewgroup_gallery.view.*
+import org.jetbrains.anko.onClick
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
+import rx.subjects.PublishSubject
 
 class GalleryViewGroup : FrameLayout {
 
     /** Variable zone **/
     lateinit private var viewContainer: View
+    private var rowClickedObservable: PublishSubject<Int> = PublishSubject.create()
+
 
     /** Override method zone **/
     constructor(context: Context) : super(context) {
@@ -47,6 +53,9 @@ class GalleryViewGroup : FrameLayout {
 
     private fun initInstances() {
         // findViewById here
+        layoutContainer.onClick {
+            rowClickedObservable.onNext(1)
+        }
 
     }
 
@@ -72,5 +81,11 @@ class GalleryViewGroup : FrameLayout {
         btnUnlock.text = "แต้มสะสม : ${model.point}"
         tvDescription.text = model.description
         Glide.with(context).load(model.imageUrl).into(ivImage)
+    }
+
+    fun getClickObservable() : Observable<Int> {
+        return rowClickedObservable
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

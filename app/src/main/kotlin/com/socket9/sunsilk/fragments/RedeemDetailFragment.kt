@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.extensions.loadingTwoSecThen
+import com.socket9.sunsilk.extensions.showDialog
 import com.socket9.sunsilk.managers.SharePref
 import com.socket9.sunsilk.models.Model
-import com.socket9.thetsl.extensions.loadingTwoSecThen
-import com.socket9.thetsl.extensions.showDialog
 import kotlinx.android.synthetic.main.fragment_redeem_detail.*
 import org.jetbrains.anko.onClick
 import org.jetbrains.anko.support.v4.share
@@ -89,15 +89,15 @@ class RedeemDetailFragment : Fragment() {
     private fun redeem(model: Model.RedeemPrize) {
         var point = SharePref.getPoint()
 
-        if(point < model.point){
+        if (point < model.point) {
             showDialog("Insufficient Point", "You need ${model.point - point} more points to redeem!")
-        }else{
+        } else {
             point -= model.point
             loadingTwoSecThen() {
                 val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
                 SharePref.saveRedeemHistory(redeemModel)
                 showDialog("Congratulation", "The prize will be sent to your account soon. You have $point points left")
-                SharePref.savePoint(point)
+                SharePref.decreasePointTo(point)
                 shouldRedeemable(model.point)
             }
         }
@@ -112,7 +112,7 @@ class RedeemDetailFragment : Fragment() {
             tvRedeemPointWarning.text = "You need to earn more ${point - SharePref.getPoint()} points to redeem"
         }
 
-        if(isFromHistory){
+        if (isFromHistory) {
             btnRedeem.visibility = View.GONE
         }
     }

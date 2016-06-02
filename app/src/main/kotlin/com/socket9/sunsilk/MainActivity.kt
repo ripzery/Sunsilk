@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
             R.id.menu_clear_point -> {
-                SharePref.savePoint(0)
+                SharePref.increasePoint(0)
+                SharePref.sharePref.edit().putInt(SharePref.SHARE_PREF_POINT_CUMULATIVE, 0).apply()
                 return true
             }
             R.id.menu_clear_history -> {

@@ -26,13 +26,17 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            fontPath="fonts/adman/db_adman_x.ttf"
             tools:text="Article title"/>
 
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            fontPath="fonts/adman/db_adman_x.ttf"
+            android:textColor="@color/colorPinkLight"
             tools:text="Article subtitle"/>
 
     </LinearLayout>
@@ -43,6 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_keyboard_arrow_right"/>
+        android:src="@drawable/ic_keyboard_arrow_right_pink"/>
 
 </RelativeLayout>

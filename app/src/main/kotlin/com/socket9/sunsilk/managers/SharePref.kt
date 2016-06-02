@@ -18,9 +18,13 @@ object SharePref: AnkoLogger{
     val SHARE_PREF_POINT_CUMULATIVE = "point_cumulative"
     val SHARE_PREF_REDEEM_HISTORY = "redeem_history"
 
-    fun savePoint(point: Int){
+    fun increasePoint(point: Int){
+        sharePref.edit().putInt(SHARE_PREF_POINT_CUMULATIVE, getPointCumulative() + point).apply()
+        sharePref.edit().putInt(SHARE_PREF_POINT, point + getPoint()).apply()
+    }
+
+    fun decreasePointTo(point: Int){
         sharePref.edit().putInt(SHARE_PREF_POINT, point).apply()
-        sharePref.edit().putInt(SHARE_PREF_POINT_CUMULATIVE, getPointCumulative() + point)
     }
 
     fun getPoint(): Int{

@@ -1,10 +1,10 @@
 package com.socket9.sunsilk.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.extensions.replaceFragment
 import com.socket9.sunsilk.fragments.LoginFragment
-import com.socket9.thetsl.extensions.replaceFragment
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,7 +23,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-
     private fun initInstance() {
 
         /* Init instance */
@@ -31,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
 
         /* replace fragment  */
         replaceFragment(fragment = loginFragment)
-
 
 
     }

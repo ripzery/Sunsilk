@@ -1,4 +1,4 @@
-package com.socket9.thetsl.extensions
+package com.socket9.sunsilk.extensions
 
 import android.app.Activity
 import android.support.v4.app.Fragment

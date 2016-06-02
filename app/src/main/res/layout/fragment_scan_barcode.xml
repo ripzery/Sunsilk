@@ -9,28 +9,110 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_bg_grey_green"
-        android:gravity="center_horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPagerScan"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        </android.support.v4.view.ViewPager>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center"
+                android:src="@drawable/rphone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorPink"
+                android:text="สแกนได้จากตัวบาร์โค้ดที่ได้เมื่อซื้อครีมนวดตัวอย่างบาร์โค้ด"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/receipt_with_barcode"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="วิธีการใช้งาน"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="1. กดปุ่มเริ่มสแกนโค้ด "/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="2. วางแนวสแกนให้ตรงกับบาร์โค้ดบนสลิป" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="3. ค้างไว้ประมาณ 3 วินาที" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="4. รับคะแนน"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 
+
     <Button
         android:id="@+id/btnScan"
-        android:layout_width="180dp"
-        android:text="SCAN"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="เริ่มสแกนโค้ด"
+        android:gravity="center"
+        android:drawablePadding="-70dp"
+        android:paddingLeft="120dp"
+        android:drawableLeft="@drawable/scan_icon"
         android:layout_marginTop="16dp"
-        android:theme="@style/BaseButton.Green"
-        android:layout_height="64dp"/>
+        android:theme="@style/BaseButton.Pink"/>
 
 </LinearLayout>
 

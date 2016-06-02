@@ -53,9 +53,9 @@ class GalleryAdapter : RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>, A
             // find itemView here
             galleryViewGroup = itemView!!.find<GalleryViewGroup>(R.id.galleryViewGroup)
 
-//            galleryViewGroup.getClickObservable().subscribe {
-//                listener?.onClick(adapterPosition, GalleryList[adapterPosition])
-//            }
+            galleryViewGroup.getClickObservable().subscribe {
+                listener?.onClick(adapterPosition, galleryList[adapterPosition])
+            }
         }
 
         fun setModel(model: Model.Gallery) {

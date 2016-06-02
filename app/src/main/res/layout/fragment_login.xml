@@ -14,9 +14,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="128dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo_1"/>
 
     </LinearLayout>
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:theme="@style/BaseButton.Green"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="180dp"
         android:text="Login"/>
 
 </LinearLayout>

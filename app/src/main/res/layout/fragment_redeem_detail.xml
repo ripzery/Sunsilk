@@ -18,8 +18,8 @@
             <ImageView
                 android:id="@+id/ivPrize"
                 android:layout_width="match_parent"
-                android:scaleType="centerCrop"
-                android:layout_height="240dp"/>
+                android:scaleType="fitXY"
+                android:layout_height="200dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,10 +34,10 @@
 
                 <TextView
                     android:id="@+id/tvPrizeTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textColor="@android:color/white"
                     tools:text="Prize A"/>
 
@@ -48,7 +48,7 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     tools:text="10 Pt."/>
 
             </LinearLayout>

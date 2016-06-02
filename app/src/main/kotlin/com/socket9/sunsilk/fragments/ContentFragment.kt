@@ -59,6 +59,7 @@ class ContentFragment : Fragment() {
     /** Method zone **/
 
     private fun initInstance() {
+
         btnArticle.onClick {
             startActivity<ArticleActivity>()
         }
