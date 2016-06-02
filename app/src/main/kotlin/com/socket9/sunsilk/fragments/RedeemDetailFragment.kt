@@ -90,13 +90,13 @@ class RedeemDetailFragment : Fragment() {
         var point = SharePref.getPoint()
 
         if (point < model.point) {
-            showDialog("Insufficient Point", "You need ${model.point - point} more points to redeem!")
+            showDialog("คะแนนไม่พอ", "คุณต้องการอีก ${model.point - point} คะแนนในการแลกรับของรางวัล")
         } else {
             point -= model.point
             loadingTwoSecThen() {
                 val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
                 SharePref.saveRedeemHistory(redeemModel)
-                showDialog("Congratulation", "The prize will be sent to your account soon. You have $point points left")
+                showDialog("ยินดีด้วย", "รางวัลจะถูกส่งไปเร็วๆนี้. คุณมีคะแนนเหลือ $point คะแนน")
                 SharePref.decreasePointTo(point)
                 shouldRedeemable(model.point)
             }
@@ -109,7 +109,7 @@ class RedeemDetailFragment : Fragment() {
         if (isRedeemable) {
             btnRedeem.isEnabled = false
             tvRedeemPointWarning.visibility = View.VISIBLE
-            tvRedeemPointWarning.text = "You need to earn more ${point - SharePref.getPoint()} points to redeem"
+            tvRedeemPointWarning.text = "คุณต้องการอีก ${point - SharePref.getPoint()} คะแนนในการแลกรับของรางวัล"
         }
 
         if (isFromHistory) {

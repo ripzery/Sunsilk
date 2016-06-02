@@ -37,7 +37,7 @@
                 android:paddingRight="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:background="#44ffffff"
+                android:background="#44000000"
                 android:orientation="horizontal">
 
                 <TextView
@@ -45,7 +45,7 @@
                     tools:text="Prize A"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/colorFontBlack"
+                    android:textColor="@color/colorFontWhite"
                     android:textStyle="bold"
                     fontPath="fonts/adman/db_adman_x.ttf"
                     android:textSize="20sp"/>
@@ -58,7 +58,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     fontPath="fonts/adman/db_adman_x.ttf"
-                    android:textColor="@color/colorFontBlack"
+                    android:textColor="@color/colorFontWhite"
                     android:textSize="20sp"/>
 
 

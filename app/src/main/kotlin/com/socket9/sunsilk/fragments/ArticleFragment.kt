@@ -28,7 +28,7 @@ class ArticleFragment : Fragment(), ArticlesAdapter.ArticleClickInterface {
     lateinit var param1: String
     var articlesList: MutableList<Model.Article> = mutableListOf(
             Model.Article("ฟื้นฟูผมแห้งเสีย", "โทมัส ทอร์", R.drawable.pro_01, "http://www.sunsilkthailand.com/article/detail/765451/thomastaw"),
-            Model.Article("ผู้เชี่ยวชาญด้านน้ำหนักของเส้นผม", "จามาล ฮามมาดิ", R.drawable.pro_04, "http://www.sunsilkthailand.com/article/detail/765500/jamal-hammaki"),
+            Model.Article("เส้นผมมีน้ำหนัก", "จามาล ฮามมาดิ", R.drawable.pro_04, "http://www.sunsilkthailand.com/article/detail/765500/jamal-hammaki"),
             Model.Article("ยืดผมตรง", "ยูโกะ ยามาชิตะ", R.drawable.pro_03, "http://www.sunsilkthailand.com/article/detail/765482/yuko-yamashita"),
             Model.Article("ผมดำเงางาม", "เท็ดดี้ ชาลส์", R.drawable.pro_02, "http://www.sunsilkthailand.com/article/detail/765512/teddycharles")
     )
