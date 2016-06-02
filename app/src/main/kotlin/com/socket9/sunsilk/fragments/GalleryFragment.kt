@@ -21,17 +21,17 @@ import org.jetbrains.anko.support.v4.startActivity
 class GalleryFragment : Fragment(), GalleryAdapter.GalleryClickInterface {
     /** Variable zone **/
     lateinit var param1: String
-    val galleryList: MutableList<Model.Gallery> = mutableListOf(
-            Model.Gallery(10, "ต้นไม้ออกลูกเป็นแพะ", R.drawable.gallery_video_1, "NqjwNW7heYA"),
-            Model.Gallery(20, "เมืองสีชมพู", R.drawable.gallery_video_2, "a4ZV9GWLT7A"),
-            Model.Gallery(30, "\"ฮัมมัม\" ห้องอาบน้ำรวม", R.drawable.gallery_video_3, "cUiLZTtx0k0"),
-            Model.Gallery(30, "สมบัติล้ำค่าของเบลล่า", R.drawable.gallery_video_4, "jOwe98IZAQo")
-    )
-
 
     /** Static method zone **/
     companion object {
         val ARG_1 = "ARG_1"
+
+        val galleryList: MutableList<Model.Gallery> = mutableListOf(
+                Model.Gallery(20, "ต้นไม้ออกลูกเป็นแพะ", R.drawable.gallery_video_1, "NqjwNW7heYA"),
+                Model.Gallery(30, "เมืองสีชมพู", R.drawable.gallery_video_2, "a4ZV9GWLT7A"),
+                Model.Gallery(40, "\"ฮัมมัม\" ห้องอาบน้ำรวม", R.drawable.gallery_video_3, "cUiLZTtx0k0"),
+                Model.Gallery(50, "สมบัติล้ำค่าของเบลล่า", R.drawable.gallery_video_4, "jOwe98IZAQo")
+        )
 
         fun newInstance(param1: String): GalleryFragment {
             var bundle: Bundle = Bundle()

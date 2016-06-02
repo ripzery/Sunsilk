@@ -18,6 +18,8 @@ object SharePref: AnkoLogger{
     val SHARE_PREF_POINT_CUMULATIVE = "point_cumulative"
     val SHARE_PREF_REDEEM_HISTORY = "redeem_history"
     val SHARE_PREF_FIRST_TIME= "first_time"
+    val VIDEOS = listOf(1,2,3,4)
+    val SHARE_PREF_IS_UNLOCK_VIDEOS= "unlock_"
 
     val FIRST_TIME = -1
     val DEFAULT = 0
@@ -38,6 +40,14 @@ object SharePref: AnkoLogger{
 
     fun decreasePointTo(point: Int){
         sharePref.edit().putInt(SHARE_PREF_POINT, point).apply()
+    }
+
+    fun unlockVideo(video: Int){
+        sharePref.edit().putBoolean("$SHARE_PREF_IS_UNLOCK_VIDEOS$video", true).apply()
+    }
+
+    fun isUnlocked(video: Int): Boolean{
+        return sharePref.getBoolean("$SHARE_PREF_IS_UNLOCK_VIDEOS$video", false)
     }
 
     fun getPoint(): Int{

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ยินดีด้วย !!"
+        android:textSize="24sp"
+        android:textColor="@color/colorFontBlack"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="คุณปลดล็อควิดีโอตัวใหม่แล้ว"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <ImageView
+        android:id="@+id/ivVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:src="@drawable/gallery_video_1"/>
+
+    <Button
+        android:id="@+id/btnOpen"
+        android:text="เปิดเพื่อรับชม"
+        android:textSize="20sp"
+        android:theme="@style/BaseButton.Pink"
+        fontPath="fonts/adman/db_adman_x.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

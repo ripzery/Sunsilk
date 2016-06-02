@@ -5,15 +5,24 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.activities.VideoActivity
 import com.socket9.sunsilk.extensions.loadingTwoSecThen
 import com.socket9.sunsilk.extensions.showDialog
 import com.socket9.sunsilk.managers.SharePref
 import com.socket9.sunsilk.models.Model
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_redeem_detail.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.find
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.share
 import java.util.*
 
@@ -96,12 +105,30 @@ class RedeemDetailFragment : Fragment() {
             loadingTwoSecThen() {
                 val redeemModel: Model.RedeemPrizeHistory = Model.RedeemPrizeHistory(model, Date())
                 SharePref.saveRedeemHistory(redeemModel)
-                showDialog("ยินดีด้วย", "รางวัลจะถูกส่งไปเร็วๆนี้. คุณมีคะแนนเหลือ $point คะแนน")
+                showRedeemSuccessDialog(point)
                 SharePref.decreasePointTo(point)
                 shouldRedeemable(model.point)
             }
         }
 
+    }
+
+    private fun showRedeemSuccessDialog(point: Int){
+        val dialogView = activity.layoutInflater.inflate(R.layout.layout_dialog_redeem_success, rootContainer, false)
+        val dialog = alert {
+            customView(dialogView)
+        }
+
+        val btnOk = dialogView.find<Button>(R.id.btnOk)
+        val tvDetail = dialogView.find<TextView>(R.id.tvDetail)
+
+        tvDetail.text = "${tvDetail.text.toString()} คุณมีคะแนนเหลือ $point คะแนน"
+
+        dialog.show()
+
+        btnOk.onClick {
+            dialog.dismiss()
+        }
     }
 
     private fun shouldRedeemable(point: Int) {

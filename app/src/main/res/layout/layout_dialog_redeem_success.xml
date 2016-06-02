@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="แลกรางวัลสำเร็จ !!"
+        android:textSize="28sp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/colorFontBlack"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:text="รางวัลจะถูกส่งไปที่ Account ของท่าน"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_marginTop="32dp"
+        android:text="ตกลง"
+        android:textSize="20sp"
+        android:theme="@style/BaseButton.Pink"
+        fontPath="fonts/adman/db_adman_x.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

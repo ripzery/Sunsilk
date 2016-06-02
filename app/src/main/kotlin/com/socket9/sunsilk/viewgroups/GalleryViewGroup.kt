@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.managers.SharePref
 import com.socket9.sunsilk.models.Model
 import kotlinx.android.synthetic.main.viewgroup_gallery.view.*
 import org.jetbrains.anko.onClick
@@ -54,9 +55,10 @@ class GalleryViewGroup : FrameLayout {
     private fun initInstances() {
         // findViewById here
         layoutContainer.onClick {
-            rowClickedObservable.onNext(1)
+            if(btnUnlock.isEnabled) {
+                rowClickedObservable.onNext(1)
+            }
         }
-
     }
 
     private fun initWithAttrs(attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) {
@@ -81,6 +83,12 @@ class GalleryViewGroup : FrameLayout {
         btnUnlock.text = "แต้มสะสม : ${model.point}"
         tvDescription.text = model.description
         Glide.with(context).load(model.imageUrl).into(ivImage)
+
+        val isUnlocked = SharePref.getPointCumulative() >= model.point
+
+        btnUnlock.isEnabled = isUnlocked
+        layoutContainer.isEnabled = isUnlocked
+        btnUnlock.setCompoundDrawablesWithIntrinsicBounds( if(isUnlocked) R.drawable.ic_lock_open else R.drawable.ic_lock_outline, 0, 0, 0);
     }
 
     fun getClickObservable() : Observable<Int> {
