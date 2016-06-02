@@ -6,11 +6,12 @@ import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import com.socket9.sunsilk.adapter.MainTabAdapter
 import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.managers.SharePref
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
@@ -90,8 +91,39 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
         })
 
+
+        /* Congratulation 10 Point */
+
+        if(SharePref.isFirstTime() == SharePref.FIRST_TIME){
+
+            SharePref.setFirstTime(SharePref.NOT_FIRST_TIME)
+
+            SharePref.increasePoint(10)
+
+            showDialog()
+        }
+
+
+
 //        mainFragment = MainFragment.newInstance("")
 
 //        replaceFragment(fragment = mainFragment!!)
+    }
+
+    private fun showDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.layout_dialog_first_time, rootContainer, false)
+        val dialog = alert {
+            customView(dialogView)
+        }
+
+        dialog.show()
+
+        val btnOk = dialogView.find<Button>(R.id.btnOk)
+
+        btnOk.onClick {
+            dialog.dismiss()
+            val mainTab = supportFragmentManager.findFragmentByTag("android:switcher:${R.id.viewpager}:${viewpager.currentItem}") as MainFragment
+            mainTab.updatePoint()
+        }
     }
 }

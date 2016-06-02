@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.socket9.sunsilk.MainActivity
 import com.socket9.sunsilk.R
+import com.socket9.sunsilk.managers.SharePref
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.support.v4.indeterminateProgressDialog
@@ -64,6 +65,7 @@ class LoginFragment : Fragment(), AnkoLogger {
     /** Method zone **/
 
     private fun initInstance() {
+
         btnLogin.setOnClickListener {
             progressDialog = indeterminateProgressDialog("Logging In", "Please wait...")
             progressDialog?.setCancelable(false)
@@ -72,6 +74,9 @@ class LoginFragment : Fragment(), AnkoLogger {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
                         progressDialog?.dismiss()
+                        if(SharePref.isFirstTime() == SharePref.DEFAULT){
+                            SharePref.setFirstTime(SharePref.FIRST_TIME)
+                        }
                         startActivity<MainActivity>()
                     }
         }

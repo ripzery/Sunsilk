@@ -5,11 +5,16 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
 import com.socket9.sunsilk.fragments.ContentFragment
 import com.socket9.sunsilk.fragments.MainFragment
 import com.socket9.sunsilk.fragments.RedeemPointFragment
 import com.socket9.sunsilk.fragments.ScanBarcodeFragment
 import com.socket9.sunsilk.managers.SharePref
+import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan
+import uk.co.chrisjenx.calligraphy.TypefaceUtils
 
 /**
  * Created by Euro (ripzery@gmail.com) on 5/27/16 AD.
@@ -38,7 +43,7 @@ class MainTabAdapter : FragmentPagerAdapter {
 
     companion object {
         val TAB_SIZE = 4
-        val TAB_TITLES = listOf("MyPoint", "Barcode", "Redeem", "Content")
+        val TAB_TITLES = listOf("หน้าหลัก", "สแกนโค้ด", "แลกรางวัล", "บทความ")
     }
 
     override fun getItem(position: Int): Fragment? {
@@ -56,7 +61,12 @@ class MainTabAdapter : FragmentPagerAdapter {
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return TAB_TITLES[position]
+        val title = TAB_TITLES[position]
+        val typefaceSpan = CalligraphyTypefaceSpan(TypefaceUtils.load(context.assets, "fonts/adman/db_adman_x.ttf"))
+        val s = SpannableStringBuilder()
+        s.append(title);
+        s.setSpan(typefaceSpan, 0, title.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return SpannableString.valueOf(s);
     }
 
 }

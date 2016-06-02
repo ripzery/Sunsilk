@@ -17,6 +17,19 @@ object SharePref: AnkoLogger{
     val SHARE_PREF_POINT = "point"
     val SHARE_PREF_POINT_CUMULATIVE = "point_cumulative"
     val SHARE_PREF_REDEEM_HISTORY = "redeem_history"
+    val SHARE_PREF_FIRST_TIME= "first_time"
+
+    val FIRST_TIME = -1
+    val DEFAULT = 0
+    val NOT_FIRST_TIME = 1
+
+    fun setFirstTime(isFirst: Int){
+        sharePref.edit().putInt(SHARE_PREF_FIRST_TIME, isFirst).apply()
+    }
+
+    fun isFirstTime(): Int{
+        return sharePref.getInt(SHARE_PREF_FIRST_TIME, DEFAULT)
+    }
 
     fun increasePoint(point: Int){
         sharePref.edit().putInt(SHARE_PREF_POINT_CUMULATIVE, getPointCumulative() + point).apply()

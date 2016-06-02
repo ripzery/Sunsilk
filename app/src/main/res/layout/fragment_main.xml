@@ -25,6 +25,7 @@
         android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal"
         android:textSize="36sp"
+        fontPath="fonts/adman/db_adman_x.ttf"
         android:textColor="@color/colorFontWhite"
         android:text="Jennifer Wilson"
         />
@@ -64,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorFontWhite"
                     android:textSize="18sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="คะแนนสะสม"/>
                 
             </LinearLayout>
@@ -89,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorFontWhite"
                     android:textSize="18sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="คะแนนที่ใช้ได้"/>
 
 
@@ -106,6 +109,7 @@
                 android:id="@+id/tvHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/button_height_small"
+                fontPath="fonts/adman/db_adman_x.ttf"
                 android:drawableLeft="@drawable/ic_lock_outline"
                 android:gravity="center"
                 android:textColor="@color/colorFontWhite"

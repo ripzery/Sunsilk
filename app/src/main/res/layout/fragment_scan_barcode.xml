@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                fontPath="fonts/adman/db_adman_x.ttf"
                 android:textColor="@color/colorPink"
                 android:text="สแกนได้จากตัวบาร์โค้ดที่ได้เมื่อซื้อครีมนวดตัวอย่างบาร์โค้ด"/>
 
@@ -66,32 +67,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="วิธีการใช้งาน"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="24sp"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="1. กดปุ่มเริ่มสแกนโค้ด "/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="2. วางแนวสแกนให้ตรงกับบาร์โค้ดบนสลิป" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="3. ค้างไว้ประมาณ 3 วินาที" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    fontPath="fonts/adman/db_adman_x.ttf"
                     android:text="4. รับคะแนน"/>
 
             </LinearLayout>
@@ -109,7 +119,9 @@
         android:text="เริ่มสแกนโค้ด"
         android:gravity="center"
         android:drawablePadding="-70dp"
-        android:paddingLeft="120dp"
+        fontPath="fonts/adman/db_adman_x.ttf"
+        android:paddingLeft="130dp"
+        android:textSize="20sp"
         android:drawableLeft="@drawable/scan_icon"
         android:layout_marginTop="16dp"
         android:theme="@style/BaseButton.Pink"/>

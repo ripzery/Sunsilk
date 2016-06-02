@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ยินดีด้วย !!"
+        android:textSize="24sp"
+        android:textColor="@color/colorFontBlack"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="คุณได้รับแต้มจากการเข้าใช้งานครั้งแรก"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="คุณได้รับ"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/colorFontGrey"
+        fontPath="fonts/adman/db_adman_x.ttf"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/point"/>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_marginTop="16dp"
+        android:text="ตกลง"
+        android:textSize="20sp"
+        android:theme="@style/BaseButton.Pink"
+        fontPath="fonts/adman/db_adman_x.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
